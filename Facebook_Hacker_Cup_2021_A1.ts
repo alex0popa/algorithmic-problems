@@ -2,10 +2,7 @@ import fs from 'fs';
 
 const VOC = ['A', 'E', 'I', 'O', 'U'];
 
-interface A {
-  cons: {[x: string]: string}
-  voc: {[x: string]: string}
-}
+interface A { cons: { [x: string]: string }, voc: { [x: string]: string } };
 
 fs.readFile('input.txt', (_, data) => {
   const lines = data.toLocaleString().split('\n')
@@ -18,9 +15,8 @@ fs.readFile('input.txt', (_, data) => {
           : {...ac, voc: {...ac.voc, [curr]: curr}}
         : typeof ac.cons[curr] === 'string'
           ? {...ac, cons: {...ac.cons, [curr]: ac.cons[curr] + curr}}
-          : {...ac, cons: {...ac.cons, [curr]: curr}}
-      ,
-      {cons: {}, voc: {}} as A
+          : {...ac, cons: {...ac.cons, [curr]: curr}},
+      { cons: {}, voc: {} } as A
     );
     
     const voc = Object.values(alph.voc).sort((a, b) => b.length - a.length);
