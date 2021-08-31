@@ -1,6 +1,7 @@
 import fs from 'fs';
 
-type StrMap = Map<string, string[]>
+type StrMap = Map<string, string[]>;
+
 let A = 'A'.charCodeAt(0);
 const ALPHABET = Array(26).fill(null).map(() => String.fromCharCode(A++));
 
